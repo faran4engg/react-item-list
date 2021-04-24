@@ -1,39 +1,29 @@
-import { useLayoutEffect, useState } from "react";
+import { SvgIcon } from "app/domains/Common/components/svg-icon";
+import SidePanelOverlay from "./SidePanelOverlay";
 
-const SidePanel = ({ width, height, children }) => {
-  const [xPosition, setX] = useState(-width);
-
-  const toggleMenu = () => {
-    if (xPosition < 0) {
-      setX(0);
-    } else {
-      setX(-width);
-    }
-  };
-
-  useLayoutEffect(() => {
-    setX(0);
-  }, []);
+const SidePanel = ({ children, isSidePanelOpen, handleIsSidePanelOpen }) => {
   return (
     <>
+      <SidePanelOverlay
+        isSidePanelOpen={isSidePanelOpen}
+        handleIsSidePanelOpen={handleIsSidePanelOpen}
+      />
       <div
-        className="flex flex-col h-full duration-700 ease-in-out bg-white border-r border-solid rounded-none"
-        style={{
-          transform: `translatex(${xPosition}px)`,
-          width: width,
-          minHeight: height,
-        }}
+        className={`fixed right-0 w-80 overflow-y-auto transition duration-300 ease-out transform z-30 h-full shadow-left shadow-md bg-light-mode dark:bg-dark-mode ${
+          isSidePanelOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        <button
-          onClick={() => toggleMenu()}
-          className="toggle-menu"
-          style={{
-            transform: `translate(${width}px, 20vh)`,
-          }}
+        <div
+          onClick={() => handleIsSidePanelOpen(!isSidePanelOpen)}
+          className="z-50 flex flex-col items-end p-2 cursor-pointer "
         >
-          .
-        </button>
-        <div className="content">{children}</div>
+          <SvgIcon
+            className="w-8 h-8 bg-light-mode dark:bg-dark-mode"
+            icon="CloseIcon"
+          />
+        </div>
+
+        {children}
       </div>
     </>
   );
