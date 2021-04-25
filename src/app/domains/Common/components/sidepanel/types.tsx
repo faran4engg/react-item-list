@@ -1,4 +1,4 @@
 export interface SidePanelOverlayProps {
-  handleIsSidePanelOpen: (flag: boolean) => void;
+  handleIsSidePanelOpen: () => void;
   isSidePanelOpen: boolean;
 }

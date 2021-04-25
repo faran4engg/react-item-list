@@ -12,7 +12,7 @@ const CharacterDetails: FC<CharacterDetailsProps> = ({
   name,
 }) => {
   return (
-    <div className="w-56 mt-1 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+    <div className="w-56 mt-1 bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
       <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
         {name}
       </h3>
