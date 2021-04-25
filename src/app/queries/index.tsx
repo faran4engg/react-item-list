@@ -1,5 +1,6 @@
 import { axiosInstance } from "app/axios/axios-instance";
 
-const getCharacters = async () => await axiosInstance.get(`/character`);
+const getCharacters = async (page = 1) =>
+  await axiosInstance.get(`/character?page=${page}`);
 
 export { getCharacters };

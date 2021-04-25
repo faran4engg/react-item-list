@@ -5,14 +5,19 @@ import { RickAndMortyCharacters } from "app/domains/RickAndMorty/components/Rick
 
 const HomePage: FC = () => {
   const [isSidePanelOpen, handleIsSidePanelOpen] = useState(false);
-
+  function toggle() {
+    handleIsSidePanelOpen((prevValue) => !prevValue);
+  }
   return (
     <>
       <RickAndMortyContainer>
-        {({ isLoading, characters }) => (
+        {({ isLoading, characters, setPage, page }) => (
           <RickAndMortyCharacters
             isLoading={isLoading}
             characters={characters}
+            toggle={toggle}
+            setPage={setPage}
+            page={page}
           />
         )}
       </RickAndMortyContainer>
