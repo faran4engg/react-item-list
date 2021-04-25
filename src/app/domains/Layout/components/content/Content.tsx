@@ -3,7 +3,7 @@ import { ContentProps } from "./types";
 
 const cls = {
   main: "h-full overflow-y-auto",
-  mainWrapper: "grid",
+  mainWrapper: "grid container mx-auto",
 };
 
 const Content: FC<ContentProps> = ({ children }) => (
