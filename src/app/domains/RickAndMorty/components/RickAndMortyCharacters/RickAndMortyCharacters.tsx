@@ -4,6 +4,8 @@ import { CardSkeleton } from "app/domains/Common/components/loaders";
 import NotFoundPage from "app/pages/NotFoundPage";
 import { RickAndMortyCharactersProps } from "./types";
 import { SidePanel } from "app/domains/Common/components/sidepanel";
+import SelectedCharacterInfo from "./SelectedCharacterInfo";
+import { ResultsAPI } from "app/kernel/rick-and-morty-api/types";
 
 const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   isLoading,
@@ -12,7 +14,9 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   setPage,
 }): any => {
   const [isSidePanelOpen, handleIsSidePanelOpen] = useState(false);
-  const [currentSelected, setCurrentSelected] = useState({});
+  const [currentSelected, setCurrentSelected] = useState<ResultsAPI | null>(
+    null
+  );
 
   function toggle() {
     handleIsSidePanelOpen((prevValue) => !prevValue);
@@ -38,43 +42,11 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
         isSidePanelOpen={isSidePanelOpen}
         handleIsSidePanelOpen={toggle}
       >
-        <div className="max-w-sm mx-auto ">
-          <img
-            loading="lazy"
-            className="object-cover object-center w-full h-auto"
-            src={currentSelected["image"]}
-            alt="avatar"
-          />
-
-          <div className="p-4">
-            <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
-              ✍️ {currentSelected["name"]}
-            </h1>
-
-            <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-              <h1 className="px-2 text-sm">❣️ {currentSelected["status"]}</h1>
-            </div>
-
-            <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-              <h1 className="px-2 text-sm">
-                🌎 {currentSelected["location"]?.name}
-              </h1>
-            </div>
-
-            <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-              <h1 className="px-2 text-sm">➡️ {currentSelected["gender"]}</h1>
-            </div>
-            <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-              <h1 className="px-2 text-sm">🤖 {currentSelected["species"]}</h1>
-            </div>
-            <div className="flex items-center mt-4 mb-12 text-gray-700 dark:text-gray-200">
-              <h1 className="px-2 text-sm">
-                🎬 Episodes - {currentSelected["episode"]?.length}
-              </h1>
-            </div>
-          </div>
-        </div>
+        {currentSelected && (
+          <SelectedCharacterInfo character={currentSelected} />
+        )}
       </SidePanel>
+
       <ItemsList
         page={page}
         setPage={setPage}

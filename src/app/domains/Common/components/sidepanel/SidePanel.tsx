@@ -15,7 +15,7 @@ const SidePanel = ({ children, isSidePanelOpen, handleIsSidePanelOpen }) => {
       >
         <div
           onClick={handleIsSidePanelOpen}
-          className="z-50 flex flex-col items-end p-2 cursor-pointer"
+          className="fixed right-0 z-50 flex flex-col items-end p-2 cursor-pointer"
         >
           <SvgIcon
             className="w-8 h-8 bg-light-mode dark:bg-dark-mode"
