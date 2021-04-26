@@ -46,7 +46,7 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
             alt="avatar"
           />
 
-          <div className="px-6 py-4 ">
+          <div className="p-4">
             <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
               ✍️ {currentSelected["name"]}
             </h1>
@@ -67,7 +67,7 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
             <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
               <h1 className="px-2 text-sm">🤖 {currentSelected["species"]}</h1>
             </div>
-            <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
+            <div className="flex items-center mt-4 mb-12 text-gray-700 dark:text-gray-200">
               <h1 className="px-2 text-sm">
                 🎬 Episodes - {currentSelected["episode"]?.length}
               </h1>
