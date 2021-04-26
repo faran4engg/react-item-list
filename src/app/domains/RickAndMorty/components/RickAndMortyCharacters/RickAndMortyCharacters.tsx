@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
 import { ItemsList } from "app/domains/Common/components/items-list";
-import { CardSkeleton } from "app/domains/Common/components/loaders";
-import NotFoundPage from "app/pages/NotFoundPage";
 import { RickAndMortyCharactersProps } from "./types";
 import { SidePanel } from "app/domains/Common/components/sidepanel";
 import SelectedCharacterInfo from "./SelectedCharacterInfo";
 import { ResultsAPI } from "app/kernel/rick-and-morty-api/types";
+import NoResult from "../no-result/NoResult";
+import CardLoader from "../card-loader/CardLoader";
 
 const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   isLoading,
@@ -13,34 +13,21 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   page,
   setPage,
 }): any => {
-  const [isSidePanelOpen, handleIsSidePanelOpen] = useState(false);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
   const [currentSelected, setCurrentSelected] = useState<ResultsAPI | null>(
     null
   );
 
-  function toggle() {
-    handleIsSidePanelOpen((prevValue) => !prevValue);
-  }
+  if (isLoading) return <CardLoader />;
+  if (!isLoading && !characters) return <NoResult />;
 
-  if (isLoading)
-    return (
-      <div className="grid gap-6 mx-auto my-4 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-        <CardSkeleton noOfCards={4} />
-      </div>
-    );
-
-  if (!isLoading && !characters) {
-    return (
-      <div className="flex items-center justify-center mx-auto mt-8">
-        <NotFoundPage />
-      </div>
-    );
-  }
   return (
     <>
       <SidePanel
         isSidePanelOpen={isSidePanelOpen}
-        handleIsSidePanelOpen={toggle}
+        handleIsSidePanelOpen={() =>
+          setIsSidePanelOpen((prevValue) => !prevValue)
+        }
       >
         {currentSelected && (
           <SelectedCharacterInfo character={currentSelected} />
@@ -51,7 +38,7 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
         page={page}
         setPage={setPage}
         data={characters?.results || []}
-        toggle={toggle}
+        toggle={() => setIsSidePanelOpen((prevValue) => !prevValue)}
         canSearch
         filterByField={"name"}
         viewItemInfo={setCurrentSelected}
