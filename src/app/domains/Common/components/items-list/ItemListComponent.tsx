@@ -42,7 +42,7 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
                   }}
                   className="px-2 py-1 text-xs text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                 >
-                  More Info ℹ️
+                  ℹ️ More Info
                 </button>
               </div>
             </div>
