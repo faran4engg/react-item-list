@@ -12,7 +12,7 @@ const SelectedCharacterInfo: FC<SelectedCharacterInfoProps> = ({
     episode,
   },
 }): any => (
-  <div className="max-w-sm mx-auto ">
+  <>
     <img
       loading="lazy"
       className="object-cover object-center w-full h-auto"
@@ -43,7 +43,7 @@ const SelectedCharacterInfo: FC<SelectedCharacterInfoProps> = ({
         <h1 className="px-2 text-sm">🎬 No of Episodes: {episode.length}</h1>
       </div>
     </div>
-  </div>
+  </>
 );
 
 export default SelectedCharacterInfo;

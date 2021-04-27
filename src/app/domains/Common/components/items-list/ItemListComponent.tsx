@@ -26,7 +26,7 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
                 className="w-full bg-gray-300 bg-center bg-auto rounded-lg shadow-md"
               />
             </div>
-            <div className="w-56 mt-1 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+            <div className="w-56 overflow-hidden bg-white rounded-lg shadow-lg md:mt-1 lg:mt-1 xl:mt-1 xs:-mt-2 sm:-mt-2 md:w-64 dark:bg-gray-800">
               <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
                 {item.name}
               </h3>
