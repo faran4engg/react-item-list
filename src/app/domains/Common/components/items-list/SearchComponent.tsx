@@ -1,15 +1,13 @@
+import { FC } from "react";
 import Input from "app/domains/Common/components/input/Input";
 export interface SearchComponentProps {
   search: string;
   setSearch: (value: string) => void;
 }
 
-const SearchComponent: React.SFC<SearchComponentProps> = ({
-  search,
-  setSearch,
-}) => {
+const SearchComponent: FC<SearchComponentProps> = ({ search, setSearch }) => {
   return (
-    <div className="w-full mx-auto mt-4 mb-4 md:w-2/4">
+    <div className="w-3/4 mx-auto mt-4 mb-4 md:w-2/4">
       <Input
         autocomplete="off"
         name="searhVideo"
@@ -22,7 +20,7 @@ const SearchComponent: React.SFC<SearchComponentProps> = ({
         placeholder={`Search`}
         withIcon
         icon={<span className="w-5 h-5 mx-auto ">🔍</span>}
-        className="mt-1"
+        className="my-1"
       />
     </div>
   );

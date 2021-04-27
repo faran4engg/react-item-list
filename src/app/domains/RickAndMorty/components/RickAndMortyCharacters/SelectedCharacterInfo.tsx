@@ -17,7 +17,7 @@ const SelectedCharacterInfo: FC<SelectedCharacterInfoProps> = ({
       loading="lazy"
       className="object-cover object-center w-full h-auto"
       src={image}
-      alt="avatar"
+      alt={name}
     />
 
     <div className="p-4">

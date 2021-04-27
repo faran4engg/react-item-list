@@ -11,13 +11,6 @@ module.exports = {
   },
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    screens: {
-      xs: "320px",
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1440px",
-    },
     extend: {
       colors: {
         "theme-color-light": "#6C2BD9",

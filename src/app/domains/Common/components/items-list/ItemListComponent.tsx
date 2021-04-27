@@ -18,20 +18,20 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
             key={item.image}
             className="flex flex-col items-center justify-center mx-auto"
           >
-            <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
+            <div className="w-full h-auto bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
               <img
                 loading="lazy"
                 src={item.image}
-                alt="avatar"
+                alt={item.name}
                 className="w-full bg-gray-300 bg-center bg-auto rounded-lg shadow-md"
               />
             </div>
-            <div className="w-56 overflow-hidden bg-white rounded-lg shadow-lg md:mt-1 lg:mt-1 xl:mt-1 xs:-mt-2 sm:-mt-2 md:w-64 dark:bg-gray-800">
-              <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
+            <div className="w-56 -mt-8 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+              <h3 className="py-1 font-semibold tracking-wide text-center text-gray-800 uppercase dark:text-white">
                 {item.name}
               </h3>
 
-              <div className="flex items-center justify-between px-3 py-2 text-sm font-semibold bg-gray-200 dark:bg-gray-700">
+              <div className="flex items-center justify-between px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700">
                 <span className="text-gray-800 dark:text-gray-200">
                   {item.gender === "Male" ? "🙋‍♂️" : "🙋‍♀️"} {item.gender}
                 </span>
