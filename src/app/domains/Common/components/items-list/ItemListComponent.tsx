@@ -1,4 +1,6 @@
 import { ResultsAPI } from "app/kernel/rick-and-morty-api/types";
+import { ProgressiveImage } from "../progressive-image";
+import placeHolderImage from "assets/images/placeholder.jpg";
 export interface ItemListComponentsProps {
   items: ResultsAPI[];
   toggle: () => void;
@@ -19,8 +21,8 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
             className="flex flex-col items-center justify-center mx-auto"
           >
             <div className="w-full h-auto bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
-              <img
-                loading="lazy"
+              <ProgressiveImage
+                placeholderImg={placeHolderImage}
                 src={item.image}
                 alt={item.name}
                 className="w-full bg-gray-300 bg-center bg-auto rounded-lg shadow-md"
