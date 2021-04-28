@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import { OwnProps, RenderProps } from "./types";
+import { RenderProps } from "./types";
 import { useCharacters } from "app/hooks/queries-hooks/useCharacters/useCharacters";
 
-const RickAndMortyContainer: FC<OwnProps & RenderProps> = ({ children }) => {
+const RickAndMortyContainer: FC<RenderProps> = ({ children }) => {
   const [page, setPage] = useState(1);
   const { data, isLoading, isFetching } = useCharacters({ page });
 

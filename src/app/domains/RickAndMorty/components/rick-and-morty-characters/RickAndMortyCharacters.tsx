@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
 import { ItemsList } from "app/domains/Common/components/items-list";
-import { RickAndMortyCharactersProps } from "./types";
 import { SidePanel } from "app/domains/Common/components/sidepanel";
-import SelectedCharacterInfo from "./SelectedCharacterInfo";
 import { ResultsAPI } from "app/kernel/rick-and-morty-api/types";
 import NoResult from "../no-result/NoResult";
 import CardLoader from "../card-loader/CardLoader";
+import SelectedCharacterInfo from "./SelectedCharacterInfo";
+import { RickAndMortyCharactersProps } from "./types";
 
 const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   isLoading,
@@ -35,15 +35,15 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
       </SidePanel>
 
       <ItemsList
-        page={page}
-        setPage={setPage}
         data={characters?.results || []}
-        toggle={() => setIsSidePanelOpen((prevValue) => !prevValue)}
-        canSearch
-        filterByField={"name"}
-        viewItemInfo={setCurrentSelected}
-        paginated
-        info={characters?.info}
+        viewSelectedItemInfo={() =>
+          setIsSidePanelOpen((prevValue) => !prevValue)
+        }
+        searchBy={"name"}
+        setCurrentSelected={setCurrentSelected}
+        currentPage={page}
+        setPage={setPage}
+        paginationMeta={characters?.info}
       />
     </>
   );

@@ -8,7 +8,6 @@ interface ChildrenProps {
   page: number;
 }
 
-export interface OwnProps {}
 export interface RenderProps {
   children: (props: ChildrenProps) => ReactNode;
 }

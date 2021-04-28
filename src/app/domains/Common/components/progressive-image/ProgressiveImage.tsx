@@ -36,6 +36,8 @@ const ProgressiveImage: FC<ProgressiveImageProps> = ({
         transition: "opacity .15s linear",
       }}
       alt={alt}
+      height={100}
+      width={100}
     />
   );
 };

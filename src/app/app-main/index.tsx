@@ -2,7 +2,6 @@ import { Route, BrowserRouter } from "react-router-dom";
 import { QueryCache, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { LayoutContainer } from "app/domains/Layout/containers/async";
-
 import "./index.css";
 
 const queryCache = new QueryCache();

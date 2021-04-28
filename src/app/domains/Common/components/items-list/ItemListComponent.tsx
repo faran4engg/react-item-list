@@ -3,13 +3,13 @@ import { ProgressiveImage } from "../progressive-image";
 import placeHolderImage from "assets/images/placeholder.jpg";
 export interface ItemListComponentsProps {
   items: ResultsAPI[];
-  toggle: () => void;
+  viewSelectedItemInfo: () => void;
   setCurrentSelected: (data: object) => void;
 }
 
 const ItemListComponents: React.FC<ItemListComponentsProps> = ({
   items,
-  toggle,
+  viewSelectedItemInfo,
   setCurrentSelected,
 }) => {
   return (
@@ -39,8 +39,8 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
                 </span>
                 <button
                   onClick={() => {
-                    toggle();
                     setCurrentSelected(item);
+                    viewSelectedItemInfo();
                   }}
                   className="px-2 py-1 text-xs text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                 >

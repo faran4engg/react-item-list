@@ -1,10 +1,9 @@
-import { SuspenseLoader } from 'app/domains/Common/components/loaders';
-import React, { lazy, Suspense } from 'react';
+import { SuspenseLoader } from "app/domains/Common/components/loaders";
+import React, { lazy, Suspense } from "react";
 
 interface Opts {
   fallback: React.ReactNode;
 }
-type Unpromisify<T> = T extends Promise<infer P> ? P : never;
 
 export const lazyLoad = <
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,14 +12,14 @@ export const lazyLoad = <
   U extends React.ComponentType<any>
 >(
   importFunc: () => T,
-  selectorFunc?: (s: Unpromisify<T>) => U,
-  opts: Opts = { fallback: <SuspenseLoader /> },
+  selectorFunc?: (s) => U,
+  opts: Opts = { fallback: <SuspenseLoader /> }
 ) => {
   let lazyFactory: () => Promise<{ default: U }> = importFunc;
 
   if (selectorFunc) {
     lazyFactory = () =>
-      importFunc().then(module => ({ default: selectorFunc(module) }));
+      importFunc().then((module) => ({ default: selectorFunc(module) }));
   }
 
   const LazyComponent = lazy(lazyFactory);

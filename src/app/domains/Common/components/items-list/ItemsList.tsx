@@ -1,46 +1,35 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { FC, useState, ReactNode } from "react";
-import { ResultsAPI, InfoAPI } from "app/kernel/rick-and-morty-api/types";
+import { FC, useState } from "react";
+import { SvgIcon } from "../svg-icon";
 import SearchComponent from "./SearchComponent";
 import ItemListComponents from "./ItemListComponent";
-import ItemListRoot from "./ItemListRoot";
 import Pagination from "./Pagination";
-import { SvgIcon } from "../svg-icon";
+import { ItemsListProps } from "./types";
 
-interface ItemsListProps {
-  data: ResultsAPI[];
-  canSearch: boolean;
-  toggle: () => void;
-  renderItems?: (data: ReactNode) => void;
-  filterByField: string;
-  viewItemInfo: (data: any) => void;
-  page?: number;
-  setPage?: (page: number) => void;
-  paginated?: boolean;
-  info?: InfoAPI;
-}
 const ItemsList: FC<ItemsListProps> = ({
   data,
-  canSearch,
-  page,
-  toggle,
+  viewSelectedItemInfo,
   renderItems,
-  filterByField,
-  viewItemInfo,
+  searchBy,
+  setCurrentSelected: viewItemInfo,
+  currentPage,
   setPage,
-  paginated,
-  info,
+  paginationMeta,
 }) => {
   const [search, setSearch] = useState("");
-  const filtered = data?.filter((character) =>
-    character[filterByField]
-      .toLowerCase()
-      .trim()
-      .includes(search.toLowerCase().trim())
-  );
+  let filtered = searchBy
+    ? data.filter((character) =>
+        character[searchBy]
+          .toLowerCase()
+          .trim()
+          .includes(search.toLowerCase().trim())
+      )
+    : data;
+
   return (
-    <ItemListRoot>
-      {canSearch && <SearchComponent search={search} setSearch={setSearch} />}
+    <>
+      {searchBy && <SearchComponent search={search} setSearch={setSearch} />}
+
       {renderItems ? (
         renderItems(filtered)
       ) : filtered?.length < 1 ? (
@@ -50,14 +39,22 @@ const ItemsList: FC<ItemsListProps> = ({
       ) : (
         <ItemListComponents
           items={filtered}
-          toggle={toggle}
+          viewSelectedItemInfo={viewSelectedItemInfo}
           setCurrentSelected={viewItemInfo}
         />
       )}
-      {paginated && filtered?.length > 1 && (
-        <Pagination page={page} setPage={setPage} next={info?.next} />
-      )}
-    </ItemListRoot>
+
+      {currentPage &&
+        (paginationMeta?.next || paginationMeta?.prev) &&
+        setPage && (
+          <Pagination
+            currentPage={currentPage}
+            setPage={setPage}
+            nextPage={paginationMeta.next}
+            prevPage={paginationMeta.prev}
+          />
+        )}
+    </>
   );
 };
 

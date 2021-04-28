@@ -18,6 +18,8 @@ const SelectedCharacterInfo: FC<SelectedCharacterInfoProps> = ({
       className="object-cover object-center w-full h-auto"
       src={image}
       alt={name}
+      height={100}
+      width={100}
     />
 
     <div className="p-4">

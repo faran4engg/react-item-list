@@ -1,22 +1,11 @@
 import { FC } from "react";
-import RickAndMortyContainer from "app/domains/RickAndMorty/containers/RickAndMortyContainer";
-import { RickAndMortyCharacters } from "app/domains/RickAndMorty/components/RickAndMortyCharacters";
+import RickAndMortyContainer from "app/domains/RickAndMorty/containers/rick-and-morty-container";
+import { RickAndMortyCharacters } from "app/domains/RickAndMorty/components/rick-and-morty-characters";
 
-const HomePage: FC = () => {
-  return (
-    <>
-      <RickAndMortyContainer>
-        {({ isLoading, characters, setPage, page }) => (
-          <RickAndMortyCharacters
-            isLoading={isLoading}
-            characters={characters}
-            setPage={setPage}
-            page={page}
-          />
-        )}
-      </RickAndMortyContainer>
-    </>
-  );
-};
+const HomePage: FC = () => (
+  <RickAndMortyContainer>
+    {(props) => <RickAndMortyCharacters {...props} />}
+  </RickAndMortyContainer>
+);
 
 export default HomePage;
