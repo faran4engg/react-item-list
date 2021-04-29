@@ -13,28 +13,27 @@ const ProgressiveImage: FC<ProgressiveImageProps> = ({
   alt,
   className,
 }) => {
-  const [loading, setLoading] = useState(true);
-  const [currentSrc, setCurrentSrc] = useState(placeholderImg);
+  const [imageMeta, setImageMeta] = useState({
+    src: placeholderImg,
+    isLoading: true,
+  });
 
   useEffect(() => {
     const imageToLoad = new Image();
     imageToLoad.src = src;
     imageToLoad.onload = () => {
       // When image is loaded replace the image's src and set loading to false
-      setLoading(false);
-      setCurrentSrc(src);
+      setImageMeta({ src, isLoading: false });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <img
       loading="lazy"
-      src={currentSrc}
-      className={className}
-      style={{
-        opacity: loading ? 0.5 : 1,
-        transition: "opacity .15s linear",
-      }}
+      src={imageMeta.src}
+      className={`${className} ${
+        imageMeta.isLoading ? "opacity-50" : "opacity-100"
+      } transition-opacity`}
       alt={alt}
       height={100}
       width={100}
