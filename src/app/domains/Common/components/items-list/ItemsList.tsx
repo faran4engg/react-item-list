@@ -30,12 +30,12 @@ const ItemsList: FC<ItemsListProps> = ({
     <>
       {searchBy && <SearchComponent search={search} setSearch={setSearch} />}
 
-      {renderItems ? (
-        renderItems(filtered)
-      ) : filtered?.length < 1 ? (
+      {filtered?.length < 1 ? (
         <div className="flex items-center justify-center max-w-sm mx-auto mt-8">
           <SvgIcon icon="Error404Icon" />
         </div>
+      ) : renderItems ? (
+        renderItems(filtered)
       ) : (
         <ItemListComponents
           items={filtered}
@@ -44,7 +44,8 @@ const ItemsList: FC<ItemsListProps> = ({
         />
       )}
 
-      {currentPage &&
+      {filtered?.length > 1 &&
+        currentPage &&
         (paginationMeta?.next || paginationMeta?.prev) &&
         setPage && (
           <Pagination

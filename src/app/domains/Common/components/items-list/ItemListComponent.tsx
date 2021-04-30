@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { ResultsAPI } from "app/kernel/rick-and-morty-api/types";
-import { ProgressiveImage } from "../progressive-image";
-import placeHolderImage from "assets/images/placeholder.jpg";
+
 export interface ItemListComponentsProps {
   items: ResultsAPI[];
   viewSelectedItemInfo: () => void;
@@ -9,49 +9,50 @@ export interface ItemListComponentsProps {
 
 const ItemListComponents: React.FC<ItemListComponentsProps> = ({
   items,
+
   viewSelectedItemInfo,
   setCurrentSelected,
 }) => {
   return (
-    <>
-      <div className="grid gap-6 mx-auto my-4 mb-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {items?.map((item) => (
-          <div
-            key={item.image}
-            className="flex flex-col items-center justify-center mx-auto"
-          >
-            <div className="w-full h-auto bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
-              <ProgressiveImage
-                placeholderImg={placeHolderImage}
-                src={item.image}
-                alt={item.name}
-                className="w-full bg-gray-300 bg-center bg-auto rounded-lg shadow-md"
-              />
-            </div>
-            <div className="w-56 -mt-8 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-              <h3 className="py-1 font-semibold tracking-wide text-center text-gray-800 uppercase dark:text-white">
-                {item.name}
-              </h3>
-
-              <div className="flex items-center justify-between px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700">
-                <span className="text-gray-800 dark:text-gray-200">
-                  {item.gender === "Male" ? "🙋‍♂️" : "🙋‍♀️"} {item.gender}
-                </span>
-                <button
+    <div className="flex items-center min-h-screen">
+      <table className="w-full mx-auto overflow-hidden bg-white divide-y divide-gray-300 rounded-lg whitespace-nowrap">
+        <tbody className="divide-y divide-gray-200">
+          {items.map((item) => (
+            <tr key={item.image}>
+              <td className="px-3 py-4 md:px-8">
+                <div className="flex items-center space-x-3">
+                  <div className="inline-flex w-10 h-10">
+                    <img
+                      loading="lazy"
+                      className="object-cover w-10 h-10 rounded-full"
+                      alt="User avatar"
+                      src={item.image}
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold truncate ">{item.name}</p>
+                    {/* <p className="text-sm tracking-wide text-gray-500">
+                      {item.gender}
+                    </p> */}
+                  </div>
+                </div>
+              </td>
+              <td className="px-3 py-4 text-right md:px-8">
+                <a
+                  className="text-purple-800 hover:underline"
                   onClick={() => {
                     setCurrentSelected(item);
                     viewSelectedItemInfo();
                   }}
-                  className="px-2 py-1 text-xs text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                 >
-                  ℹ️ More Info
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
+                  More Info
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

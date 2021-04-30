@@ -6,6 +6,7 @@ import NoResult from "../no-result/NoResult";
 import CardLoader from "../card-loader/CardLoader";
 import SelectedCharacterInfo from "./SelectedCharacterInfo";
 import { RickAndMortyCharactersProps } from "./types";
+import RickAndMortyListItems from "./RickAndMortyListItems";
 
 const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   isLoading,
@@ -35,6 +36,15 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
       </SidePanel>
 
       <ItemsList
+        // renderItems={(items) => (
+        //   <RickAndMortyListItems
+        //     items={items}
+        //     viewSelectedItemInfo={() =>
+        //       setIsSidePanelOpen((prevValue) => !prevValue)
+        //     }
+        //     setCurrentSelected={setCurrentSelected}
+        //   />
+        // )}
         data={characters?.results || []}
         viewSelectedItemInfo={() =>
           setIsSidePanelOpen((prevValue) => !prevValue)
