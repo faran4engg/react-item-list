@@ -13,7 +13,7 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
   setCurrentSelected,
 }) => {
   return (
-    <div className="flex items-center mb-8">
+    <div className="flex mb-8">
       <table className="w-full mx-auto overflow-hidden divide-y divide-gray-300 rounded-lg whitespace-nowrap bg-light-mode dark:bg-dark-mode">
         <tbody>
           {items.map((item) => (
