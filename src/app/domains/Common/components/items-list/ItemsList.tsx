@@ -44,7 +44,7 @@ const ItemsList: FC<ItemsListProps> = ({
         />
       )}
 
-      {filtered?.length > 1 &&
+      {filtered?.length > 0 &&
         currentPage &&
         (paginationMeta?.next || paginationMeta?.prev) &&
         setPage && (
