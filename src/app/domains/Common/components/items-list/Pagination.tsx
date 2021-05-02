@@ -15,16 +15,16 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   return (
     <div className="flex justify-center mb-5">
-      <div className="mx-1">
+      <div className="mx-2">
         <Button
           onClick={() => setPage(currentPage - 1)}
           disabled={!prevPage}
           className={`cursor-${!!prevPage ? "pointer" : "not-allowed"}`}
         >
-          Previous
+          Prev
         </Button>
       </div>
-      <div className="mx-6">
+      <div className="mx-2">
         <Button
           onClick={() => setPage(currentPage + 1)}
           disabled={!nextPage}
