@@ -36,20 +36,28 @@ $ npm ci
 
 ## Screencast GIF
 
+> iPhone
 > ![iPhone](./gifs/01-iphone.gif)
 
+> Desktop
 > ![Desktop](./gifs/02-desktop.gif)
 
+> iPad
 > ![iPad](./gifs/03-ipad.gif)
 
+> Selected Characted More Info
 > ![SelectedChar](./gifs/04-selectedCharInfo.gif)
 
+> Search
 > ![Search](./gifs/05-search.gif)
 
+> Pagination
 > ![Pagination](./gifs/06-pagination.gif)
 
+> Not Found Route
 > ![NotFound](./gifs/07-not-found.gif)
 
+> Reusable Code (Default List UI)
 > ![ReusableCode](./gifs/08-reusable-code.gif)
 
 #### Best user experience can be enjoyed on:
