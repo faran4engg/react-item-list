@@ -22,6 +22,14 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
   if (isLoading) return <CardLoader />;
   if (!isLoading && !characters) return <NoResult />;
 
+  const renderItems = (items) => (
+    <RickAndMortyListItems
+      items={items}
+      viewSelectedItemInfo={() => setIsSidePanelOpen((prevValue) => !prevValue)}
+      setCurrentSelected={setCurrentSelected}
+    />
+  );
+
   return (
     <>
       <SidePanel
@@ -36,20 +44,12 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
       </SidePanel>
 
       <ItemsList
-        // renderItems={(items) => (
-        //   <RickAndMortyListItems
-        //     items={items}
-        //     viewSelectedItemInfo={() =>
-        //       setIsSidePanelOpen((prevValue) => !prevValue)
-        //     }
-        //     setCurrentSelected={setCurrentSelected}
-        //   />
-        // )}
+        renderItems={renderItems}
         data={characters?.results || []}
         viewSelectedItemInfo={() =>
           setIsSidePanelOpen((prevValue) => !prevValue)
         }
-        searchBy={"name"}
+        searchBy="name"
         setCurrentSelected={setCurrentSelected}
         currentPage={page}
         setPage={setPage}
