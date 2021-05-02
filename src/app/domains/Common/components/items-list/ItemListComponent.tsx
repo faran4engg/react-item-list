@@ -43,7 +43,7 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
               </td>
               <td className="px-3 py-4 text-right md:px-8">
                 <a
-                  className="px-2 py-1 text-xs text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded cursor-pointer dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                  className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded cursor-pointer dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                   onClick={() => {
                     setCurrentSelected(item);
                     viewSelectedItemInfo();

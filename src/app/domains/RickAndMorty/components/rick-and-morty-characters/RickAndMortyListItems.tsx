@@ -31,7 +31,7 @@ const RickAndMortyListItems: FC<RickAndMortyListItemsProps> = ({
               />
             </div>
             <div className="w-56 -mt-8 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-              <h3 className="py-1 font-semibold tracking-wide text-center text-gray-800 uppercase dark:text-white">
+              <h3 className="py-1 font-semibold tracking-wide text-center text-gray-800 dark:text-white">
                 {item.name}
               </h3>
 
@@ -44,7 +44,7 @@ const RickAndMortyListItems: FC<RickAndMortyListItemsProps> = ({
                     setCurrentSelected(item);
                     viewSelectedItemInfo();
                   }}
-                  className="px-2 py-1 text-xs text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                  className="px-2 py-1 text-xs text-white transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
                 >
                   ℹ️ More Info
                 </button>
