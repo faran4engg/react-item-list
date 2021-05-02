@@ -35,9 +35,6 @@ const ItemListComponents: React.FC<ItemListComponentsProps> = ({
                     <p className="px-3 py-1 font-semibold tracking-wide text-left truncate w-28 md:w-full">
                       {item.name}
                     </p>
-                    {/* <p className="text-sm tracking-wide text-gray-500">
-                      {item.gender}
-                    </p> */}
                   </div>
                 </div>
               </td>

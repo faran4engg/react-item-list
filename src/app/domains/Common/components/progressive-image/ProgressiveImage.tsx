@@ -4,7 +4,7 @@ export interface ProgressiveImageProps {
   placeholderImg: string;
   src: string;
   alt: string;
-  className: string;
+  className?: string;
 }
 
 const ProgressiveImage: FC<ProgressiveImageProps> = ({
@@ -31,7 +31,7 @@ const ProgressiveImage: FC<ProgressiveImageProps> = ({
     <img
       loading="lazy"
       src={imageMeta.src}
-      className={`${className} ${
+      className={`${className ?? ""} ${
         imageMeta.isLoading ? "opacity-50" : "opacity-100"
       } transition-opacity`}
       alt={alt}

@@ -1,49 +1,44 @@
 import { FC } from "react";
+import { infoMap } from "./selectedCharInfoMap";
 import { SelectedCharacterInfoProps } from "./types";
 
 const SelectedCharacterInfo: FC<SelectedCharacterInfoProps> = ({
-  character: {
-    image,
-    name,
-    status,
-    location: { name: locationName },
-    gender,
-    species,
-    episode,
-  },
+  character,
 }): any => (
   <>
     <img
       loading="lazy"
       className="object-cover object-center w-full h-auto"
-      src={image}
-      alt={name}
+      src={character.image}
+      alt={character.name}
       height={100}
       width={100}
     />
 
     <div className="p-4">
       <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
-        ✍️ {name}
+        ✍️ {character.name}
       </h1>
 
-      <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-        <h1 className="px-2 text-sm">❣️ Status: {status}</h1>
-      </div>
+      {infoMap.map((info) => {
+        const key = Object.keys(info)[0];
+        const { icon, label } = info[key];
+        const value =
+          key === "location"
+            ? character[key].name
+            : key === "episode"
+            ? character[key].length
+            : character[key];
 
-      <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-        <h1 className="px-2 text-sm">🌎 Location: {locationName}</h1>
-      </div>
-
-      <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-        <h1 className="px-2 text-sm">➡️ Gender: {gender}</h1>
-      </div>
-      <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-        <h1 className="px-2 text-sm">🤖 Species: {species}</h1>
-      </div>
-      <div className="flex items-center mt-4 mb-12 text-gray-700 dark:text-gray-200">
-        <h1 className="px-2 text-sm">🎬 No of Episodes: {episode.length}</h1>
-      </div>
+        return (
+          <div
+            key={label}
+            className="flex items-center mt-4 text-gray-700 dark:text-gray-200"
+          >
+            <h1 className="px-2 text-sm">{`${icon} ${label} ${value}`}</h1>
+          </div>
+        );
+      })}
     </div>
   </>
 );

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Input from "app/domains/Common/components/input/Input";
+import { Input } from "app/domains/Common/components/input";
 export interface SearchComponentProps {
   search: string;
   setSearch: (value: string) => void;
