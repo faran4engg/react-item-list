@@ -34,6 +34,24 @@ $ npm ci
 
 - Light and Dark mode
 
+## Screencast GIF
+
+> ![iPhone](./gifs/01-iphone.gif)
+
+> ![Desktop](./gifs/02-desktop.gif)
+
+> ![iPad](./gifs/03-ipad.gif)
+
+> ![SelectedChar](./gifs/04-selectedCharInfo.gif)
+
+> ![Search](./gifs/05-search.gif)
+
+> ![Pagination](./gifs/06-pagination.gif)
+
+> ![NotFound](./gifs/07-not-found.gif)
+
+> ![ReusableCode](./gifs/08-reusable-code.gif)
+
 #### Best user experience can be enjoyed on:
 
 - Google Chrome

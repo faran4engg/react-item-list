@@ -44,7 +44,10 @@ const RickAndMortyCharacters: FC<RickAndMortyCharactersProps> = ({
       </SidePanel>
 
       <ItemsList
+        // ✅ User providing UI for the List Items
         renderItems={renderItems}
+        // 🤦🏻‍♀️ if user doesn't provide UI for the list
+        // then ItemsList component would render default UI
         data={characters?.results || []}
         viewSelectedItemInfo={() =>
           setIsSidePanelOpen((prevValue) => !prevValue)
