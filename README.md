@@ -1,13 +1,17 @@
-# react-item-list
+# React-Item-List
 
-> Designed and implemented a production ready application for displaying list of items
+> Designed and implemented a production ready mobile first responsive application for displaying list of items.
 > Technology used: `React 17`, `Tailwind CSS`, `React-Query`
 
 ---
 
+# 🚀 [Live-Demo](https://faran-hatch.web.app/home)
+
 ## Table of Contents
 
 - [Installation](#installation)
+- [Features](#features)
+- [Gifs](#gifs)
 - [BrowserList](#browserlist)
 
 ---
@@ -22,7 +26,7 @@
 $ npm ci
 ```
 
-> Once node dependencies are installed then please open your terminal and run `npm start` for a development server.
+> Once node dependencies are installed then please open your terminal and run `npm start` for spinning up the development server.
 > Navigate to `http://localhost:3000/`.
 > The app will automatically launch if you change any of the source files.
 
@@ -30,11 +34,24 @@ $ npm ci
 
 ## Features
 
-> Expected functionality:
+> Expected functionalities:
 
-- Light and Dark mode
+- Architected the app with `domain-driven-development` approach
+- Created a reusable `ItemList` component
+- Used `RickAndMorty` api to demonstrate its usage
+- Created reusable `SidePanel` component to show more details of the list item
+- Provdied the search functionality
 
-## Screencast GIF
+> Additional functionalities:
+
+- Built with Light 🌞 and Dark 🌚 mode
+- Mobile first approach
+- Fully responsive UI
+- Implemented with TypeScript
+- Added pagination
+- Unit Test cases atleast 70% [ pending ]
+
+## GIFs
 
 ### 👉🏼 iPhone
 
@@ -84,7 +101,15 @@ $ npm ci
 
 ---
 
-#### Best user experience can be enjoyed on:
+### 👉🏼 Almost Perfect Score
+
+![PerfectScore](./gifs/09-light-house.png)
+
+---
+
+## Browserlist
+
+Best user experience can be enjoyed on:
 
 - Google Chrome
 - Mozilla Firefox
