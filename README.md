@@ -34,7 +34,7 @@ $ npm ci
 
 ## Features
 
-> Expected functionalities:
+> 👉🏼 Expected functionalities:
 
 - Architected the app with `domain-driven-development` approach
 - Created a reusable `ItemList` component
@@ -42,7 +42,7 @@ $ npm ci
 - Created reusable `SidePanel` component to show more details of the list item
 - Provdied the search functionality
 
-> Additional functionalities:
+> 👉🏼 Additional functionalities:
 
 - Built with Light 🌞 and Dark 🌚 mode
 - Mobile first approach
@@ -73,7 +73,7 @@ $ npm ci
 
 ---
 
-### 👉🏼 Selected Characted More Info
+### 👉🏼 Selected Character More Info
 
 ![SelectedChar](./gifs/04-selectedCharInfo.gif)
 
