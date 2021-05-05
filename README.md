@@ -20,7 +20,7 @@
 
 > To proceed with smooth installation you should have Node 15+ version installed in your system
 
-> Please navigate to project folder folder and run below command to install `node_modules` in order to run this app locally.
+> Clone the repo. After that please navigate to project folder folder and run below command to install `node_modules` in order to run this app locally.
 
 ```shell
 $ npm ci
@@ -49,6 +49,8 @@ $ npm ci
 - Fully responsive UI
 - Implemented with TypeScript
 - Added pagination
+- Used advance react design patterns
+- Demonstrated reusability of the component if user does not provide its own UI 👉🏼 [see-here](https://github.com/faran4engg/react-item-list#-reusable-code-default-list-ui)
 - Unit Test cases atleast 70% [ pending ]
 
 ## GIFs
